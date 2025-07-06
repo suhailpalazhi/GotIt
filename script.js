@@ -1,218 +1,325 @@
-// DOM Elements
-const mainLogo = document.getElementById('mainLogo');
-const stickyLogo = document.getElementById('stickyLogo');
-const stickyNav = document.getElementById('stickyNav');
-const heroSection = document.getElementById('hero');
-
-// Scroll-based logo behavior
-function handleScroll() {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const heroHeight = heroSection.offsetHeight;
-    const scrollThreshold = heroHeight * 0.3; // Show sticky elements after 30% of hero
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('JavaScript loaded successfully!');
     
-    if (scrollTop > scrollThreshold) {
-        // Show sticky logo and nav
-        stickyLogo.classList.add('show');
-        stickyNav.classList.add('show');
-        
-        // Scale down main logo
-        if (mainLogo) {
-            mainLogo.style.transform = 'scale(0.8)';
-            mainLogo.style.opacity = '0.8';
-        }
-    } else {
-        // Hide sticky logo and nav
-        stickyLogo.classList.remove('show');
-        stickyNav.classList.remove('show');
-        
-        // Reset main logo
-        if (mainLogo) {
-            mainLogo.style.transform = 'scale(1)';
-            mainLogo.style.opacity = '1';
-        }
-    }
-}
+    // Sticky Navigation and Logo
+    const stickyNav = document.getElementById('stickyNav');
+    const stickyLogo = document.getElementById('stickyLogo');
+    const mainLogo = document.getElementById('mainLogo');
 
-// Smooth scrolling for navigation links
-function setupSmoothScrolling() {
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
+    console.log('Elements found:', { stickyNav, stickyLogo, mainLogo });
+
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset;
+        console.log('Scroll position:', scrollTop);
+        
+        // Show sticky navigation after hero section
+        if (scrollTop > 100) {
+            console.log('Adding show class to navigation');
+            stickyNav.classList.add('show');
+            stickyLogo.classList.add('show');
+        } else {
+            console.log('Removing show class from navigation');
+            stickyNav.classList.remove('show');
+            stickyLogo.classList.remove('show');
+        }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                const headerOffset = 80; // Account for sticky nav
-                const elementPosition = targetElement.offsetTop;
-                const offsetPosition = elementPosition - headerOffset;
-                
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
         });
     });
-}
 
-// Animate elements on scroll
-function animateOnScroll() {
-    const elements = document.querySelectorAll('.feature-card, .mentor-card, .testimonial-card, .step');
+    // Interactive Schedule Table
+    const scheduleCells = document.querySelectorAll('.schedule-table-real td.clickable');
+    scheduleCells.forEach(cell => {
+        cell.addEventListener('click', function() {
+            const timeSlot = this.querySelector('.time-slot').textContent;
+            const subject = this.querySelector('.subject-tag').textContent;
+            const mentor = this.querySelector('.mentor').textContent;
+            showClassDetails(timeSlot, subject, mentor);
+        });
+    });
+
+    // Schedule Filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const scheduleRows = document.querySelectorAll('.schedule-table-real tbody tr[data-subject]');
     
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter schedule rows
+            scheduleRows.forEach(row => {
+                if (filter === 'all' || row.getAttribute('data-subject') === filter) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Class Details Modal
+    function showClassDetails(time, subject, mentor) {
+        const modal = document.createElement('div');
+        modal.className = 'class-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>${subject} Class</h3>
+                <div class="class-info">
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Time: ${time}</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-user"></i>
+                        <span>Mentor: ${mentor}</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-users"></i>
+                        <span>Max Students: 15</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-video"></i>
+                        <span>Platform: Zoom/Google Meet</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-primary" onclick="joinClass('${subject}', '${time}')">
+                        <i class="fas fa-play"></i> Join Class
+                    </button>
+                    <button class="btn-secondary" onclick="addToCalendar('${subject}', '${time}')">
+                        <i class="fas fa-calendar-plus"></i> Add to Calendar
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Close modal functionality
+        modal.querySelector('.close-modal').addEventListener('click', () => {
+            modal.remove();
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
+    }
+
+    // Animated Counter for Statistics
+    function animateCounter(element, target, duration = 2000) {
+        let start = 0;
+        const increment = target / (duration / 16);
+        
+        function updateCounter() {
+            start += increment;
+            if (start < target) {
+                element.textContent = Math.floor(start);
+                requestAnimationFrame(updateCounter);
+            } else {
+                element.textContent = target;
+            }
+        }
+        updateCounter();
+    }
+
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('animate-in');
+                
+                // Animate counters in hero statistics
+                if (entry.target.classList.contains('stat-item')) {
+                    const counter = entry.target.querySelector('.stat-number');
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    animateCounter(counter, target);
+                }
             }
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('.feature-card, .step, .mentor-card, .testimonial-card, .stat-item').forEach(el => {
+        observer.observe(el);
     });
-    
-    elements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(element);
-    });
-}
 
-// Mobile menu toggle (if needed)
-function setupMobileMenu() {
-    // Add mobile menu functionality if needed
-    // For now, we'll hide the menu on mobile as per the responsive design
-}
-
-// Initialize all functions
-function init() {
-    // Set up event listeners
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('load', () => {
-        setupSmoothScrolling();
-        animateOnScroll();
-        setupMobileMenu();
-    });
-    
-    // Run initial scroll check
-    handleScroll();
-}
-
-// Start the application
-init();
-
-// WhatsApp button interaction
-document.addEventListener('DOMContentLoaded', function() {
-    const whatsappButton = document.querySelector('.whatsapp-button');
-    
-    if (whatsappButton) {
-        whatsappButton.addEventListener('click', function(e) {
-            // Add a small bounce animation
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 150);
+    // Interactive Progress Tracking
+    function initializeProgressTracking() {
+        const progressBars = document.querySelectorAll('.progress-bar');
+        progressBars.forEach(bar => {
+            const progress = bar.getAttribute('data-progress');
+            bar.style.width = progress + '%';
         });
     }
-});
 
-// Add loading animation for images
-function setupImageLoading() {
-    const images = document.querySelectorAll('img');
-    
-    images.forEach(img => {
-        img.addEventListener('load', function() {
-            this.style.opacity = '1';
-        });
-        
-        // Set initial opacity
-        img.style.opacity = '0';
-        img.style.transition = 'opacity 0.3s ease';
-        
-        // If image is already loaded (cached)
-        if (img.complete) {
-            img.style.opacity = '1';
-        }
-    });
-}
-
-// Initialize image loading
-document.addEventListener('DOMContentLoaded', setupImageLoading);
-
-// Form submission handling (if needed)
-function setupFormHandling() {
-    // Add form validation or submission logic here if needed
-    // For now, we're using a Google Form link
-}
-
-// Testimonial slider (simple version for mobile)
-function setupTestimonialSlider() {
-    const testimonialGrid = document.querySelector('.testimonials-grid');
-    
-    if (window.innerWidth <= 768) {
-        // Add touch/swipe functionality for mobile if needed
-        // For now, we'll keep the basic grid layout
-    }
-}
-
-// Handle window resize
-window.addEventListener('resize', function() {
-    setupTestimonialSlider();
-});
-
-// Add some interactive features
-document.addEventListener('DOMContentLoaded', function() {
-    // Add ripple effect to buttons
-    const buttons = document.querySelectorAll('.cta-button');
-    
-    buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            ripple.classList.add('ripple');
-            
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-    });
-});
-
-// Add CSS for ripple effect
-const style = document.createElement('style');
-style.textContent = `
-    .cta-button {
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.4);
-        transform: scale(0);
-        animation: ripple-animation 0.6s linear;
-        pointer-events: none;
-    }
-    
-    @keyframes ripple-animation {
-        to {
-            transform: scale(4);
-            opacity: 0;
+    // Study Timer Functionality
+    function initializeStudyTimer() {
+        const timerButton = document.querySelector('.timer-button');
+        if (timerButton) {
+            timerButton.addEventListener('click', function() {
+                showStudyTimer();
+            });
         }
     }
-`;
-document.head.appendChild(style);
+
+    function showStudyTimer() {
+        const modal = document.createElement('div');
+        modal.className = 'timer-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>Study Timer</h3>
+                <div class="timer-display">
+                    <div class="time">25:00</div>
+                    <div class="timer-controls">
+                        <button class="timer-btn" data-time="25">25 min</button>
+                        <button class="timer-btn" data-time="45">45 min</button>
+                        <button class="timer-btn" data-time="60">60 min</button>
+                    </div>
+                    <div class="timer-actions">
+                        <button class="btn-primary start-timer">Start</button>
+                        <button class="btn-secondary pause-timer" style="display: none;">Pause</button>
+                        <button class="btn-danger reset-timer">Reset</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Timer functionality
+        let timeLeft = 25 * 60; // 25 minutes in seconds
+        let timerInterval;
+        let isRunning = false;
+        
+        const timeDisplay = modal.querySelector('.time');
+        const startBtn = modal.querySelector('.start-timer');
+        const pauseBtn = modal.querySelector('.pause-timer');
+        const resetBtn = modal.querySelector('.reset-timer');
+        const timerBtns = modal.querySelectorAll('.timer-btn');
+        
+        function updateDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timeDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        function startTimer() {
+            if (!isRunning) {
+                isRunning = true;
+                startBtn.style.display = 'none';
+                pauseBtn.style.display = 'inline-block';
+                timerInterval = setInterval(() => {
+                    timeLeft--;
+                    updateDisplay();
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval);
+                        alert('Study session completed!');
+                        resetTimer();
+                    }
+                }, 1000);
+            }
+        }
+        
+        function pauseTimer() {
+            if (isRunning) {
+                isRunning = false;
+                clearInterval(timerInterval);
+                startBtn.style.display = 'inline-block';
+                pauseBtn.style.display = 'none';
+            }
+        }
+        
+        function resetTimer() {
+            clearInterval(timerInterval);
+            isRunning = false;
+            timeLeft = 25 * 60;
+            updateDisplay();
+            startBtn.style.display = 'inline-block';
+            pauseBtn.style.display = 'none';
+        }
+        
+        // Event listeners
+        startBtn.addEventListener('click', startTimer);
+        pauseBtn.addEventListener('click', pauseTimer);
+        resetBtn.addEventListener('click', resetTimer);
+        
+        timerBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const time = parseInt(this.getAttribute('data-time'));
+                timeLeft = time * 60;
+                updateDisplay();
+                resetTimer();
+            });
+        });
+        
+        // Close modal functionality
+        modal.querySelector('.close-modal').addEventListener('click', () => {
+            modal.remove();
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
+    }
+
+    // Dark Mode Toggle
+    function initializeDarkMode() {
+        const darkModeToggle = document.querySelector('.dark-mode-toggle');
+        console.log('Dark mode toggle found:', darkModeToggle);
+        
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('click', function() {
+                console.log('Dark mode toggle clicked!');
+                document.body.classList.toggle('dark-mode');
+                const icon = this.querySelector('i');
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.className = 'fas fa-sun';
+                } else {
+                    icon.className = 'fas fa-moon';
+                }
+            });
+        }
+    }
+
+    // Initialize all functions
+    initializeProgressTracking();
+    initializeStudyTimer();
+    initializeDarkMode();
+
+    // Global functions for modal actions
+    window.joinClass = function(subject, time) {
+        alert(`Joining ${subject} class at ${time}`);
+        // Add your join class logic here
+    };
+
+    window.addToCalendar = function(subject, time) {
+        alert(`Adding ${subject} class at ${time} to calendar`);
+        // Add your calendar integration logic here
+    };
+}); 
