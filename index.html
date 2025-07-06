@@ -13,17 +13,31 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gotit-style.css">
 </head>
 <body>
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-content">
             <div class="logo-container">
-                <img src="assets/logo.svg" alt="GotIt.Study Logo" class="main-logo" id="mainLogo">
+                <img src="https://via.placeholder.com/150x150/667eea/ffffff?text=GotIt.Study" alt="GotIt.Study Logo" class="main-logo" id="mainLogo">
             </div>
             <h1 class="hero-title">Learn Smarter. Not Harder.</h1>
             <p class="hero-subtitle">Flexible Science & Math learning for Class 8–12 students</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="5000">0</span>
+                    <span class="stat-label">Students</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-label">Expert Mentors</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="95">0</span>
+                    <span class="stat-label">Success Rate</span>
+                </div>
+            </div>
             <a href="#registration" class="cta-button">Join Free Trial Class</a>
         </div>
         <div class="hero-background">
@@ -33,7 +47,7 @@
 
     <!-- Sticky Logo (appears on scroll) -->
     <div class="sticky-logo-container" id="stickyLogo">
-        <img src="assets/logo.svg" alt="GotIt.Study" class="sticky-logo">
+        <img src="https://via.placeholder.com/50x50/ffffff/667eea?text=GotIt" alt="GotIt.Study" class="sticky-logo">
     </div>
 
     <!-- Navigation -->
@@ -43,11 +57,20 @@
             <ul class="nav-menu">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#why-choose">Why Choose</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#subjects">Subjects</a></li>
                 <li><a href="#schedule">Schedule</a></li>
                 <li><a href="#mentors">Mentors</a></li>
+                <li><a href="#resources">Resources</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="nav-actions">
+                <button class="timer-button" title="Study Timer">
+                    <i class="fas fa-clock"></i>
+                </button>
+                <button class="dark-mode-toggle" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -61,28 +84,117 @@
                         <i class="fas fa-user-graduate"></i>
                     </div>
                     <h3>One-on-One Mentorship</h3>
-                    <p>Personalized learning paths tailored to your unique needs and learning style.</p>
+                    <p>Personalized learning paths tailored to your unique needs and learning style with dedicated mentors.</p>
+                    <div class="feature-benefits">
+                        <span class="benefit-tag">Personalized</span>
+                        <span class="benefit-tag">Flexible</span>
+                    </div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Group Study Pods</h3>
-                    <p>Collaborate with peers in topic-based study groups for better understanding.</p>
+                    <p>Collaborate with peers in topic-based study groups for better understanding and peer learning.</p>
+                    <div class="feature-benefits">
+                        <span class="benefit-tag">Collaborative</span>
+                        <span class="benefit-tag">Interactive</span>
+                    </div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-phone-alt"></i>
                     </div>
-                    <h3>Homework Help Hotline</h3>
-                    <p>Get instant help with your homework and clear doubts quickly.</p>
+                    <h3>24/7 Homework Help</h3>
+                    <p>Get instant help with your homework and clear doubts quickly through our dedicated support system.</p>
+                    <div class="feature-benefits">
+                        <span class="benefit-tag">24/7 Support</span>
+                        <span class="benefit-tag">Instant Help</span>
+                    </div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3>Buddy Pass</h3>
-                    <p>Connect with study buddies and create lasting learning partnerships.</p>
+                    <h3>Study Buddy System</h3>
+                    <p>Connect with study buddies and create lasting learning partnerships for mutual growth.</p>
+                    <div class="feature-benefits">
+                        <span class="benefit-tag">Peer Support</span>
+                        <span class="benefit-tag">Motivation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section id="subjects" class="subjects">
+        <div class="container">
+            <h2 class="section-title">Comprehensive Subject Coverage</h2>
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <h3>Mathematics</h3>
+                    <div class="subject-topics">
+                        <span class="topic">Algebra</span>
+                        <span class="topic">Geometry</span>
+                        <span class="topic">Calculus</span>
+                        <span class="topic">Trigonometry</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" data-progress="85"></div>
+                        <span class="progress-text">85% Students Improved</span>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Physics</h3>
+                    <div class="subject-topics">
+                        <span class="topic">Mechanics</span>
+                        <span class="topic">Electromagnetism</span>
+                        <span class="topic">Thermodynamics</span>
+                        <span class="topic">Optics</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" data-progress="78"></div>
+                        <span class="progress-text">78% Students Improved</span>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Chemistry</h3>
+                    <div class="subject-topics">
+                        <span class="topic">Organic Chemistry</span>
+                        <span class="topic">Inorganic Chemistry</span>
+                        <span class="topic">Physical Chemistry</span>
+                        <span class="topic">Analytical Chemistry</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" data-progress="82"></div>
+                        <span class="progress-text">82% Students Improved</span>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3>Biology</h3>
+                    <div class="subject-topics">
+                        <span class="topic">Cell Biology</span>
+                        <span class="topic">Genetics</span>
+                        <span class="topic">Ecology</span>
+                        <span class="topic">Human Physiology</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" data-progress="80"></div>
+                        <span class="progress-text">80% Students Improved</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -98,24 +210,54 @@
                     <div class="step-icon">
                         <i class="fas fa-user-plus"></i>
                     </div>
-                    <h3>Sign Up</h3>
-                    <p>Create your account and choose your preferred learning mode.</p>
+                    <h3>Sign Up & Assessment</h3>
+                    <p>Create your account and take our comprehensive assessment to understand your current level.</p>
+                    <div class="step-details">
+                        <div class="detail-item">
+                            <i class="fas fa-check"></i>
+                            <span>Free diagnostic test</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-check"></i>
+                            <span>Personalized learning plan</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-icon">
                         <i class="fas fa-video"></i>
                     </div>
-                    <h3>Join Class</h3>
-                    <p>Attend live classes or connect with your personal mentor.</p>
+                    <h3>Join Live Classes</h3>
+                    <p>Attend interactive live classes or connect with your personal mentor for focused learning.</p>
+                    <div class="step-details">
+                        <div class="detail-item">
+                            <i class="fas fa-check"></i>
+                            <span>HD video quality</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-check"></i>
+                            <span>Interactive whiteboard</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-icon">
-                        <i class="fas fa-question-circle"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Ask Doubts Anytime</h3>
-                    <p>Learn at your own pace with 24/7 doubt-solving support.</p>
+                    <h3>Track Progress</h3>
+                    <p>Monitor your learning progress with detailed analytics and regular performance reports.</p>
+                    <div class="step-details">
+                        <div class="detail-item">
+                            <i class="fas fa-check"></i>
+                            <span>Weekly progress reports</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-check"></i>
+                            <span>Performance analytics</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,39 +267,83 @@
     <section id="schedule" class="schedule">
         <div class="container">
             <h2 class="section-title">Weekly Class Schedule</h2>
-            <p class="schedule-intro">Class schedules can be flexible as you want with us GotIt.</p>
-            <div class="schedule-table">
-                <div class="schedule-row header">
-                    <div class="schedule-cell">Class</div>
-                    <div class="schedule-cell">Mon</div>
-                    <div class="schedule-cell">Tue</div>
-                    <div class="schedule-cell">Wed</div>
-                    <div class="schedule-cell">Thu</div>
-                    <div class="schedule-cell">Fri</div>
-                    <div class="schedule-cell">Sat</div>
-                    <div class="schedule-cell">Sun</div>
+            <p class="schedule-intro">Flexible learning schedules designed to fit your lifestyle. We're here to support you with a custom schedule, tailored to your availability and learning journey.</p>
+            <div class="schedule-filters">
+                <button class="filter-btn active" data-filter="all">All Classes</button>
+                <button class="filter-btn" data-filter="science">Science</button>
+                <button class="filter-btn" data-filter="math">Mathematics</button>
+                <button class="filter-btn" data-filter="language">Language</button>
+            </div>
+            <div class="schedule-table-wrapper">
+                <table class="schedule-table-real">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-subject="science">
+                            <th class="class-label"><i class="fas fa-flask"></i> Class 8-10 Science</th>
+                            <td class="clickable" data-subject="science"><div class="time-slot">7:00-8:00 PM</div><div class="subject-tag science">Physics</div><div class="mentor">Shibila KP</div></td>
+                            <td class="clickable" data-subject="science"><div class="time-slot">7:00-8:00 PM</div><div class="subject-tag science">Chemistry</div><div class="mentor">Shibila KP</div></td>
+                            <td class="clickable" data-subject="science"><div class="time-slot">7:00-8:00 PM</div><div class="subject-tag science">Biology</div><div class="mentor">Basima Palayi</div></td>
+                            <td class="clickable" data-subject="science"><div class="time-slot">7:00-8:00 PM</div><div class="subject-tag science">Lab Work</div><div class="mentor">Rashida Palazhi</div></td>
+                            <td class="clickable" data-subject="science"><div class="time-slot">7:00-8:00 PM</div><div class="subject-tag science">Practical Skills</div><div class="mentor">Shibila KP</div></td>
+                            <td class="review-session"><div class="time-slot">10:00-11:00 AM</div><div class="session-type">Review Session</div><div class="session-desc">Weekly Recap & Doubt Clearing</div></td>
+                            <td class="free-session"><div class="time-slot">2:00-4:00 PM</div><div class="session-type">Free Study Time</div><div class="session-desc">Open for Practice & Questions</div></td>
+                        </tr>
+                        <tr data-subject="math">
+                            <th class="class-label"><i class="fas fa-square-root-alt"></i> Class 8-10 Mathematics</th>
+                            <td class="clickable" data-subject="math"><div class="time-slot">8:00-9:00 PM</div><div class="subject-tag math">Algebra</div><div class="mentor">Rashida Palazhi</div></td>
+                            <td class="clickable" data-subject="math"><div class="time-slot">8:00-9:00 PM</div><div class="subject-tag math">Geometry</div><div class="mentor">Rashida Palazhi</div></td>
+                            <td class="clickable" data-subject="math"><div class="time-slot">8:00-9:00 PM</div><div class="subject-tag math">Trigonometry</div><div class="mentor">Rashida Palazhi</div></td>
+                            <td class="clickable" data-subject="math"><div class="time-slot">8:00-9:00 PM</div><div class="subject-tag math">Calculus</div><div class="mentor">Rashida Palazhi</div></td>
+                            <td class="clickable" data-subject="math"><div class="time-slot">8:00-9:00 PM</div><div class="subject-tag math">Problem Solving</div><div class="mentor">Rashida Palazhi</div></td>
+                            <td class="review-session"><div class="time-slot">11:00-12:00 PM</div><div class="session-type">Review Session</div><div class="session-desc">Weekly Recap & Doubt Clearing</div></td>
+                            <td class="free-session"><div class="time-slot">4:00-6:00 PM</div><div class="session-type">Free Study Time</div><div class="session-desc">Open for Practice & Questions</div></td>
+                        </tr>
+                        <tr data-subject="language">
+                            <th class="class-label"><i class="fas fa-language"></i> Class 8-10 Language</th>
+                            <td class="clickable" data-subject="language"><div class="time-slot">9:00-10:00 PM</div><div class="subject-tag language">English</div><div class="mentor">Basima Palayi</div></td>
+                            <td class="clickable" data-subject="language"><div class="time-slot">9:00-10:00 PM</div><div class="subject-tag language">Arabic</div><div class="mentor">Basima Palayi</div></td>
+                            <td class="clickable" data-subject="language"><div class="time-slot">9:00-10:00 PM</div><div class="subject-tag language">Grammar</div><div class="mentor">Rashida Palazhi</div></td>
+                            <td class="clickable" data-subject="language"><div class="time-slot">9:00-10:00 PM</div><div class="subject-tag language">Literature</div><div class="mentor">Basima Palayi</div></td>
+                            <td class="clickable" data-subject="language"><div class="time-slot">9:00-10:00 PM</div><div class="subject-tag language">Communication</div><div class="mentor">Basima Palayi</div></td>
+                            <td class="review-session"><div class="time-slot">12:00-1:00 PM</div><div class="session-type">Review Session</div><div class="session-desc">Weekly Recap & Doubt Clearing</div></td>
+                            <td class="free-session"><div class="time-slot">6:00-8:00 PM</div><div class="session-type">Free Study Time</div><div class="session-desc">Open for Practice & Questions</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="schedule-legend">
+                <div class="legend-item">
+                    <div class="legend-color science"></div>
+                    <span>Science</span>
                 </div>
-                <div class="schedule-row">
-                    <div class="schedule-cell class-label">Class 8-10</div>
-                    <div class="schedule-cell">7:00-8:00 PM</div>
-                    <div class="schedule-cell">7:00-8:00 PM</div>
-                    <div class="schedule-cell">7:00-8:00 PM</div>
-                    <div class="schedule-cell">7:00-8:00 PM</div>
-                    <div class="schedule-cell">7:00-8:00 PM</div>
-                    <div class="schedule-cell">Review</div>
-                    <div class="schedule-cell">Free</div>
+                <div class="legend-item">
+                    <div class="legend-color math"></div>
+                    <span>Mathematics</span>
                 </div>
-                <div class="schedule-row">
-                    <div class="schedule-cell class-label">Class 11-12</div>
-                    <div class="schedule-cell">8:00-9:00 PM</div>
-                    <div class="schedule-cell">8:00-9:00 PM</div>
-                    <div class="schedule-cell">8:00-9:00 PM</div>
-                    <div class="schedule-cell">8:00-9:00 PM</div>
-                    <div class="schedule-cell">8:00-9:00 PM</div>
-                    <div class="schedule-cell">Review</div>
-                    <div class="schedule-cell">Free</div>
+                <div class="legend-item">
+                    <div class="legend-color language"></div>
+                    <span>Language</span>
                 </div>
-            </div> 
+                <div class="legend-item">
+                    <div class="legend-color review"></div>
+                    <span>Review Session</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color free"></div>
+                    <span>Free Study Time</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -168,22 +354,146 @@
             <p class="mentors-intro">Our mentors are real students and siblings who've aced the same exams you're struggling with.</p>
             <div class="mentors-grid">
                 <div class="mentor-card">
-                    <img src="https://images.unsplash.com/photo-1618544976420-1f213fcf2052" alt="Mentor 1" class="mentor-image">
-                    <h3>Priya Sharma</h3>
-                    <p>Math & Physics Expert</p>
-                    <div class="mentor-qualification">JEE Advanced AIR 245</div>
+                    <div class="mentor-header">
+                        <img src="https://images.unsplash.com/photo-1618544976420-1f213fcf2052" alt="Mentor 1" class="mentor-image">
+                        <div class="mentor-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Top Rated</span>
+                        </div>
+                    </div>
+                    <h3>Basima Palayi</h3>
+                    <p class="mentor-subject">Language Expert & Science</p>
+                    <div class="mentor-qualification">MA English, Arabic TTC, TEFL</div>
+                    <div class="mentor-stats">
+                        <div class="stat">
+                            <span class="stat-number">150+</span>
+                            <span class="stat-label">Students</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4.9</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                    </div>
+                    <div class="mentor-specialties">
+                        <span class="specialty">English</span>
+                        <span class="specialty">Arabic</span>
+                        <span class="specialty">Science</span>
+                    </div>
                 </div>
                 <div class="mentor-card">
-                    <img src="https://images.pexels.com/photos/8532850/pexels-photo-8532850.jpeg" alt="Mentor 2" class="mentor-image">
-                    <h3>Arjun Singh</h3>
-                    <p>Chemistry & Biology Expert</p>
-                    <div class="mentor-qualification">NEET AIR 156</div>
+                    <div class="mentor-header">
+                        <img src="https://images.pexels.com/photos/8532850/pexels-photo-8532850.jpeg" alt="Mentor 2" class="mentor-image">
+                        <div class="mentor-badge">
+                            <i class="fas fa-award"></i>
+                            <span>Expert</span>
+                        </div>
+                    </div>
+                    <h3>Shibila KP</h3>
+                    <p class="mentor-subject">Physics & Science Expert</p>
+                    <div class="mentor-qualification">BSc Chemistry, B.Ed Chemistry</div>
+                    <div class="mentor-stats">
+                        <div class="stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Students</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4.7</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                    </div>
+                    <div class="mentor-specialties">
+                        <span class="specialty">Physics</span>
+                        <span class="specialty">Chemistry</span>
+                        <span class="specialty">Science</span>
+                    </div>
                 </div>
                 <div class="mentor-card">
-                    <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24" alt="Mentor 3" class="mentor-image">
-                    <h3>Sneha Patel</h3>
-                    <p>Mathematics Specialist</p>
-                    <div class="mentor-qualification">Class 12 - 98.2%</div>
+                    <div class="mentor-header">
+                        <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24" alt="Mentor 3" class="mentor-image">
+                        <div class="mentor-badge">
+                            <i class="fas fa-heart"></i>
+                            <span>Popular</span>
+                        </div>
+                    </div>
+                    <h3>Rashida Palayi</h3>
+                    <p class="mentor-subject">Language Expert & Science</p>
+                    <div class="mentor-qualification">BSc Mathematics, MSc Mathematics</div>
+                    <div class="mentor-stats">
+                        <div class="stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Students</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4.7</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                    </div>
+                    <div class="mentor-specialties">
+                        <span class="specialty">Mathematics</span>
+                        <span class="specialty">Language</span>
+                        <span class="specialty">Science</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Resources Section -->
+    <section id="resources" class="resources">
+        <div class="container">
+            <h2 class="section-title">Learning Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Study Materials</h3>
+                    <p>Comprehensive notes, practice questions, and reference materials for all subjects.</p>
+                    <div class="resource-features">
+                        <span class="feature">PDF Downloads</span>
+                        <span class="feature">Video Lectures</span>
+                        <span class="feature">Practice Tests</span>
+                    </div>
+                    <a href="#" class="resource-link">Access Materials <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Live Workshops</h3>
+                    <p>Weekly workshops on exam strategies, time management, and advanced problem-solving techniques.</p>
+                    <div class="resource-features">
+                        <span class="feature">Exam Strategies</span>
+                        <span class="feature">Time Management</span>
+                        <span class="feature">Problem Solving</span>
+                    </div>
+                    <a href="#" class="resource-link">Join Workshops <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Study Groups</h3>
+                    <p>Join topic-specific study groups and collaborate with peers for better learning outcomes.</p>
+                    <div class="resource-features">
+                        <span class="feature">Peer Learning</span>
+                        <span class="feature">Group Discussions</span>
+                        <span class="feature">Shared Resources</span>
+                    </div>
+                    <a href="#" class="resource-link">Find Groups <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Progress Analytics</h3>
+                    <p>Track your learning progress with detailed analytics and personalized recommendations.</p>
+                    <div class="resource-features">
+                        <span class="feature">Performance Tracking</span>
+                        <span class="feature">Weak Area Analysis</span>
+                        <span class="feature">Personalized Goals</span>
+                    </div>
+                    <a href="#" class="resource-link">View Analytics <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -195,53 +505,74 @@
             <h2 class="section-title">What Students Say</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <div class="testimonial-header">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-rating">5.0</div>
                     </div>
-                    <p>"The one-on-one mentorship helped me understand complex math concepts easily. My grades improved from 65% to 85%!"</p>
+                    <p>"The one-on-one mentorship helped me understand complex math concepts easily. My grades improved from 65% to 85% in just 3 months!"</p>
                     <div class="testimonial-author">
                         <img src="https://images.unsplash.com/photo-1484712401471-05c7215830eb" alt="Student">
-                        <div>
+                        <div class="author-info">
                             <strong>Rahul Kumar</strong>
                             <span>Class 10 Student</span>
+                            <div class="improvement">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>20% Grade Improvement</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <div class="testimonial-header">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-rating">5.0</div>
                     </div>
-                    <p>"Group study pods made learning fun! I no longer feel alone while studying physics. The doubt-solving is amazing."</p>
+                    <p>"Group study pods made learning fun! I no longer feel alone while studying physics. The doubt-solving is amazing and mentors are always available."</p>
                     <div class="testimonial-author">
                         <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659" alt="Student">
-                        <div>
+                        <div class="author-info">
                             <strong>Ananya Reddy</strong>
                             <span>Class 12 Student</span>
+                            <div class="improvement">
+                                <i class="fas fa-trophy"></i>
+                                <span>JEE Advanced Qualified</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <div class="testimonial-header">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-rating">5.0</div>
                     </div>
-                    <p>"The buddy system connected me with like-minded students. We help each other and study together regularly."</p>
+                    <p>"The buddy system connected me with like-minded students. We help each other and study together regularly. It's like having a study family!"</p>
                     <div class="testimonial-author">
                         <img src="https://images.pexels.com/photos/5781279/pexels-photo-5781279.jpeg" alt="Student">
-                        <div>
+                        <div class="author-info">
                             <strong>Vikram Joshi</strong>
                             <span>Class 11 Student</span>
+                            <div class="improvement">
+                                <i class="fas fa-users"></i>
+                                <span>Found 5 Study Buddies</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -258,12 +589,24 @@
                 <div class="registration-benefits">
                     <h3>What You Get:</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> 7 days of free access</li>
-                        <li><i class="fas fa-check"></i> Personal mentor assignment</li>
-                        <li><i class="fas fa-check"></i> Group study session access</li>
+                        <li><i class="fas fa-check"></i> 7 days of free access to all features</li>
+                        <li><i class="fas fa-check"></i> Personal mentor assignment within 24 hours</li>
+                        <li><i class="fas fa-check"></i> Access to all group study sessions</li>
                         <li><i class="fas fa-check"></i> 24/7 doubt-solving support</li>
-                        <li><i class="fas fa-check"></i> No payment required</li>
+                        <li><i class="fas fa-check"></i> Comprehensive study materials</li>
+                        <li><i class="fas fa-check"></i> Progress tracking and analytics</li>
+                        <li><i class="fas fa-check"></i> No payment required during trial</li>
                     </ul>
+                    <div class="trial-highlights">
+                        <div class="highlight">
+                            <i class="fas fa-clock"></i>
+                            <span>Start Learning in 5 Minutes</span>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>100% Secure & Private</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="registration-form">
                     <a href="https://forms.gle/cykW3McoVYaV9d1b9" class="cta-button large" target="_blank">
@@ -271,6 +614,16 @@
                         Join Free Trial Class
                     </a>
                     <p class="form-note">Click to fill the registration form</p>
+                    <div class="trust-indicators">
+                        <div class="trust-item">
+                            <i class="fas fa-lock"></i>
+                            <span>Secure Registration</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Instant Access</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -285,21 +638,25 @@
                     <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
                     <a href="mailto:gotit.learns@gmail.com">gotit.learns@gmail.com</a>
+                    <p>Get detailed responses within 2 hours</p>
                 </div>
                 <div class="contact-card">
                     <i class="fas fa-phone"></i>
                     <h3>Phone</h3>
                     <a href="tel:+917034456460">+91 70344 56460</a>
+                    <p>Available 9 AM - 9 PM daily</p>
                 </div>
                 <div class="contact-card">
                     <i class="fab fa-instagram"></i>
                     <h3>Instagram</h3>
                     <a href="https://instagram.com/gotit.study" target="_blank">@gotit.study</a>
+                    <p>Follow for study tips and updates</p>
                 </div>
                 <div class="contact-card">
                     <i class="fab fa-whatsapp"></i>
                     <h3>WhatsApp</h3>
                     <a href="https://wa.me/917034456460" target="_blank">Chat with us</a>
+                    <p>Instant responses and quick help</p>
                 </div>
             </div>
         </div>
@@ -310,17 +667,50 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="assets/logo.svg" alt="GotIt.Study" class="footer-logo-img">
+                    <img src="https://via.placeholder.com/60x60/ffffff/667eea?text=GotIt" alt="GotIt.Study" class="footer-logo-img">
+                    <p>Empowering students to learn smarter, not harder.</p>
                 </div>
-                <div class="footer-text">
-                    <p>Made with 💙 by GotIt.Study Team</p>
-                    <p>&copy; 2024 GotIt.Study. All rights reserved.</p>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#subjects">Subjects</a></li>
+                            <li><a href="#schedule">Schedule</a></li>
+                            <li><a href="#mentors">Mentors</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#resources">Study Materials</a></li>
+                            <li><a href="#resources">Practice Tests</a></li>
+                            <li><a href="#resources">Video Lectures</a></li>
+                            <li><a href="#resources">Study Groups</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#contact">Contact Us</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="footer-social">
-                    <a href="https://instagram.com/gotit.study" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/917034456460" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="mailto:gotit.learns@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/gotit.study" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/917034456460" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:gotit.learns@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GotIt.Study. All rights reserved. Made with 💙 by GotIt.Study Team</p>
             </div>
         </div>
     </footer>
@@ -333,6 +723,23 @@
         </a>
     </div>
 
-    <script src="script.js"></script>
+    <script src="gotit-script.js"></script>
+    <script>
+        // Simple test to verify JavaScript is loading
+        console.log('HTML loaded successfully!');
+        
+        // Test if elements exist
+        setTimeout(() => {
+            const stickyNav = document.getElementById('stickyNav');
+            const stickyLogo = document.getElementById('stickyLogo');
+            const darkModeToggle = document.querySelector('.dark-mode-toggle');
+            
+            console.log('Element check:', {
+                stickyNav: !!stickyNav,
+                stickyLogo: !!stickyLogo,
+                darkModeToggle: !!darkModeToggle
+            });
+        }, 1000);
+    </script>
 </body>
 </html>
