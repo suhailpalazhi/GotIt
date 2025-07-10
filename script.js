@@ -146,22 +146,41 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -50px 0px'
     };
 
+    // Map section IDs to Animate.css classes
+    const sectionAnimations = {
+        '#hero': 'animate__fadeIn',
+        '#why-choose': 'animate__fadeInLeft',
+        '#subjects': 'animate__fadeInUp',
+        '#how-it-works': 'animate__fadeInRight',
+        '#schedule': 'animate__fadeInUp',
+        '#mentors': 'animate__fadeInLeft',
+        '#resources': 'animate__fadeInRight',
+        '#testimonials': 'animate__fadeInUp',
+        '#registration': 'animate__fadeIn',
+        '#contact': 'animate__fadeInUp'
+    };
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
-                
-                // Animate counters in hero statistics
-                if (entry.target.classList.contains('stat-item')) {
-                    const counter = entry.target.querySelector('.stat-number');
-                    const target = parseInt(counter.getAttribute('data-target'));
-                    animateCounter(counter, target);
+                // Animate.css integration
+                for (const [selector, animClass] of Object.entries(sectionAnimations)) {
+                    if (entry.target.matches(selector)) {
+                        entry.target.classList.add('animate__animated', animClass);
+                    }
                 }
             }
         });
     }, observerOptions);
 
-    // Observe elements for animation
+    // Observe sections for animation
+    [
+        '#hero', '#why-choose', '#subjects', '#how-it-works', '#schedule', '#mentors', '#resources', '#testimonials', '#registration', '#contact'
+    ].forEach(id => {
+        const el = document.querySelector(id);
+        if (el) observer.observe(el);
+    });
     document.querySelectorAll('.feature-card, .step, .mentor-card, .testimonial-card, .stat-item').forEach(el => {
         observer.observe(el);
     });
@@ -322,4 +341,129 @@ document.addEventListener('DOMContentLoaded', function() {
         alert(`Adding ${subject} class at ${time} to calendar`);
         // Add your calendar integration logic here
     };
+
+    // Scroll To Top Button
+    const scrollToTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      scrollToTopBtn.style.display = window.pageYOffset > 300 ? 'block' : 'none';
+    });
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Typing Text Effect in Hero Section (new version)
+    const typedText = document.getElementById('typed-text');
+    const messages = [
+      "Don't be a blind follower, be a critical thinker.",
+      "Master Math and Science with GotIt.Study",
+      "Join Live Sessions. Learn Smart."
+    ];
+    let messageIndex = 0, charIndex = 0;
+
+    function type() {
+      if (!typedText) return;
+      if (charIndex < messages[messageIndex].length) {
+        typedText.textContent += messages[messageIndex].charAt(charIndex++);
+        setTimeout(type, 60);
+      } else {
+        setTimeout(erase, 2000);
+      }
+    }
+    function erase() {
+      if (!typedText) return;
+      if (charIndex > 0) {
+        typedText.textContent = messages[messageIndex].substring(0, --charIndex);
+        setTimeout(erase, 40);
+      } else {
+        messageIndex = (messageIndex + 1) % messages.length;
+        setTimeout(type, 500);
+      }
+    }
+    type();
+
+    // Mobile Menu Toggle with scroll lock
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+    if (hamburgerBtn && navMenu) {
+      hamburgerBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+        body.classList.toggle('overflow-hidden', navMenu.classList.contains('show'));
+      });
+      document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('show');
+          body.classList.remove('overflow-hidden');
+        });
+      });
+    }
+    // Add loading="lazy" to all images and iframes
+    document.querySelectorAll('img,iframe').forEach(el => {
+      el.setAttribute('loading', 'lazy');
+    });
+
+    // Dynamic Weekly Timetable
+    const subjects = [
+      {
+        name: 'Physics', tag: 'physics', mentor: 'Shibila KP', icon: 'fa-atom', times: ['7:00-8:00 PM', '8:00-9:00 PM', '6:00-7:00 PM']
+      },
+      {
+        name: 'Chemistry', tag: 'chemistry', mentor: 'Shibila KP', icon: 'fa-flask', times: ['7:00-8:00 PM', '8:00-9:00 PM', '6:00-7:00 PM']
+      },
+      {
+        name: 'Biology', tag: 'biology', mentor: 'Basima Palayi', icon: 'fa-dna', times: ['7:00-8:00 PM', '8:00-9:00 PM', '6:00-7:00 PM']
+      },
+      {
+        name: 'Math', tag: 'math', mentor: 'Rashida Palazhi', icon: 'fa-square-root-alt', times: ['8:00-9:00 PM', '9:00-10:00 PM', '7:00-8:00 PM']
+      },
+      {
+        name: 'Algebra', tag: 'algebra', mentor: 'Rashida Palazhi', icon: 'fa-square-root-alt', times: ['8:00-9:00 PM', '9:00-10:00 PM', '7:00-8:00 PM']
+      },
+      {
+        name: 'Geometry', tag: 'geometry', mentor: 'Rashida Palazhi', icon: 'fa-square-root-alt', times: ['8:00-9:00 PM', '9:00-10:00 PM', '7:00-8:00 PM']
+      },
+      {
+        name: 'Trigonometry', tag: 'trigonometry', mentor: 'Rashida Palazhi', icon: 'fa-square-root-alt', times: ['8:00-9:00 PM', '9:00-10:00 PM', '7:00-8:00 PM']
+      },
+      {
+        name: 'Calculus', tag: 'calculus', mentor: 'Rashida Palazhi', icon: 'fa-square-root-alt', times: ['8:00-9:00 PM', '9:00-10:00 PM', '7:00-8:00 PM']
+      },
+      {
+        name: 'English', tag: 'english', mentor: 'Basima Palayi', icon: 'fa-language', times: ['9:00-10:00 PM', '8:00-9:00 PM', '7:00-8:00 PM']
+      },
+      {
+        name: 'Arabic', tag: 'arabic', mentor: 'Basima Palayi', icon: 'fa-language', times: ['9:00-10:00 PM', '8:00-9:00 PM', '7:00-8:00 PM']
+      },
+      {
+        name: 'Grammar', tag: 'grammar', mentor: 'Rashida Palazhi', icon: 'fa-language', times: ['9:00-10:00 PM', '8:00-9:00 PM', '7:00-8:00 PM']
+      },
+      {
+        name: 'Literature', tag: 'literature', mentor: 'Basima Palayi', icon: 'fa-language', times: ['9:00-10:00 PM', '8:00-9:00 PM', '7:00-8:00 PM']
+      },
+      {
+        name: 'Communication', tag: 'communication', mentor: 'Basima Palayi', icon: 'fa-language', times: ['9:00-10:00 PM', '8:00-9:00 PM', '7:00-8:00 PM']
+      }
+    ];
+    function getRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+    const dynamicCells = document.querySelectorAll('.dynamic-class');
+    const shuffledSubjects = shuffle([...subjects]);
+    dynamicCells.forEach((cell, idx) => {
+      const subj = shuffledSubjects[idx % shuffledSubjects.length];
+      const time = getRandom(subj.times);
+      cell.innerHTML = `
+        <div class="class-label"><i class="fas ${subj.icon}"></i> ${subj.name}</div>
+        <div class="time-slot">${time}</div>
+        <span class="subject-tag ${subj.tag}">${subj.name}</span>
+        <div class="mentor">${subj.mentor}</div>
+      `;
+    });
 }); 
