@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Got It Learning Platform - Premium Online Education for Indian Students</title>
+    <meta name="description" content="Join India's most engaging online learning platform for Class 8-12 students. Interactive mentorship, comprehensive subjects, and personalized learning experiences." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fgotitlea6908back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-smooth opacity-0 pointer-events-none">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <img src="../assets/gotit-logo.png" alt="Got It Logo" class="w-12 h-12 object-cover rounded-full shadow-md bg-white p-1 border border-gray-200 flex-shrink-0 overflow-hidden" />
+                    <span class="text-2xl font-heading font-bold text-gradient">Got It</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="homepage_landing.html" class="text-text-primary hover:text-primary transition-colors font-medium">Home</a>
+                    <a href="mentor_profiles.html" class="text-text-secondary hover:text-primary transition-colors">Mentors</a>
+                    <a href="student_dashboard.html" class="text-text-secondary hover:text-primary transition-colors">Courses</a>
+                    <a href="study_timer_progress.html" class="text-text-secondary hover:text-primary transition-colors">Study Timer</a>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center space-x-4">
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-surface transition-colors">
+                        <svg id="sunIcon" class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <svg id="moonIcon" class="w-5 h-5 text-text-secondary hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Login/Register Buttons -->
+                    <div class="hidden sm:flex items-center space-x-3">
+                        <a href="student_login.html" class="text-text-secondary hover:text-primary transition-colors font-medium">Login</a>
+                        <a href="student_registration.html" class="btn-accent">Get Started</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuToggle" class="lg:hidden p-2 rounded-lg hover:bg-surface transition-colors">
+                        <svg class="w-6 h-6 text-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="lg:hidden hidden bg-background border-t border-gray-200 dark:border-gray-700">
+            <div class="px-4 py-6 space-y-4">
+                <a href="homepage_landing.html" class="block text-text-primary font-medium">Home</a>
+                <a href="mentor_profiles.html" class="block text-text-secondary hover:text-primary transition-colors">Mentors</a>
+                <a href="student_dashboard.html" class="block text-text-secondary hover:text-primary transition-colors">Courses</a>
+                <a href="study_timer_progress.html" class="block text-text-secondary hover:text-primary transition-colors">Study Timer</a>
+                <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                    <a href="student_login.html" class="block text-text-secondary hover:text-primary transition-colors mb-3">Login</a>
+                    <a href="student_registration.html" class="btn-accent block text-center">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Video Background -->
+        <div class="absolute inset-0 z-0">
+            <video autoplay muted loop class="w-full h-full object-cover">
+                <source src="assets/video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        </div>
+    
+        <!-- Hero Content (logo, headline, buttons, etc.) -->
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <!-- Animated Logo -->
+            <div id="heroLogo" class="mb-8 flex justify-center items-center">
+                <div class="w-40 h-40 lg:w-56 lg:h-56 bg-white rounded-full flex items-center justify-center shadow-2xl border-4 border-primary mx-auto overflow-hidden">
+                    <img src="../assets/gotit-logo.png" alt="Got It Logo" class="w-full h-full object-cover" />
+                </div>
+            </div>
+            <!-- Typing Effect Headline -->
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight">
+                <span id="typingText" class="text-gradient"></span>
+                <span id="cursor" class="animate-pulse">|</span>
+            </h1>
+            <p class="text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Join thousands of Indian students achieving academic excellence through our interactive learning platform with personalized mentorship.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="student_registration.html" class="btn-accent text-lg px-8 py-4 w-full sm:w-auto">
+                    Start Learning Today
+                </a>
+                <a href="mentor_profiles.html" class="bg-white bg-opacity-20 backdrop-blur-glass text-white px-8 py-4 rounded-lg font-medium hover:bg-opacity-30 transition-all duration-300 w-full sm:w-auto">
+                    Meet Our Mentors
+                </a>
+            </div>
+            <!-- Trust Indicators -->
+            <div class="mt-12 flex flex-wrap justify-center items-center gap-8 text-gray-300">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                    <span>4.9/5 Rating</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>50,000+ Students</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>CBSE Certified</span>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gradient mb-6">
+                    Why Choose Got It?
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Experience the most engaging and effective online learning platform designed specifically for Indian students.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="card group hover:shadow-xl">
+                    <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-heading font-semibold mb-4">Interactive Learning</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        Engage with dynamic content, quizzes, and interactive exercises that make learning adipoli (awesome) and memorable.
+                    </p>
+                </div>
+
+                <!-- Feature Card 2 -->
+                <div class="card group hover:shadow-xl">
+                    <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-heading font-semibold mb-4">Expert Mentors</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        Learn from experienced educators who understand the Indian curriculum and provide personalized guidance.
+                    </p>
+                </div>
+
+                <!-- Feature Card 3 -->
+                <div class="card group hover:shadow-xl">
+                    <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-heading font-semibold mb-4">Progress Tracking</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        Monitor your learning journey with detailed analytics and personalized recommendations for improvement.
+                    </p>
+                </div>
+
+                <!-- Feature Card 4 -->
+                <div class="card group hover:shadow-xl">
+                    <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-heading font-semibold mb-4">Flexible Schedule</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        Study at your own pace with 24/7 access to courses and materials that fit your busy schedule.
+                    </p>
+                </div>
+
+                <!-- Feature Card 5 -->
+                <div class="card group hover:shadow-xl">
+                    <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-heading font-semibold mb-4">CBSE Aligned</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        Curriculum perfectly aligned with CBSE standards ensuring you're prepared for board exams.
+                    </p>
+                </div>
+
+                <!-- Feature Card 6 -->
+                <div class="card group hover:shadow-xl">
+                    <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-heading font-semibold mb-4">Instant Doubt Clearing</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        Get your doubts resolved instantly with our AI-powered assistance and mentor support system.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentor Profiles Section -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gradient mb-6">
+                    Meet Our Expert Mentors
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Learn from passionate educators who have helped thousands of students achieve their academic dreams.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Mentor Card 1 -->
+                <div class="card group hover:shadow-xl">
+                    <div class="relative mb-6 overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Arjun Sharma - Mathematics Mentor" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="text-2xl font-heading font-semibold mb-2">Arjun Sharma</h3>
+                    <p class="text-primary font-medium mb-3">Mathematics Expert</p>
+                    <p class="text-text-secondary mb-4 leading-relaxed">
+                        "Growing up with my younger sister, I learned that every student has a unique way of understanding concepts. My approach focuses on making complex mathematics simple and relatable."
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-1">
+                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <span class="text-sm text-text-secondary">4.9 (2,340 reviews)</span>
+                        </div>
+                        <a href="mentor_profiles.html" class="text-primary hover:text-secondary transition-colors font-medium">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- Mentor Card 2 -->
+                <div class="card group hover:shadow-xl">
+                    <div class="relative mb-6 overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616c0763c5c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Priya Nair - Science Mentor" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg'; this.onerror=null;" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="text-2xl font-heading font-semibold mb-2">Priya Nair</h3>
+                    <p class="text-primary font-medium mb-3">Science Specialist</p>
+                    <p class="text-text-secondary mb-4 leading-relaxed">
+                        "Having tutored my twin brother through his science struggles, I understand how to break down complex scientific concepts into digestible, exciting discoveries."
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-1">
+                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <span class="text-sm text-text-secondary">4.8 (1,890 reviews)</span>
+                        </div>
+                        <a href="mentor_profiles.html" class="text-primary hover:text-secondary transition-colors font-medium">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- Mentor Card 3 -->
+                <div class="card group hover:shadow-xl">
+                    <div class="relative mb-6 overflow-hidden rounded-2xl">
+                        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Rahul Gupta - English Mentor" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="text-2xl font-heading font-semibold mb-2">Rahul Gupta</h3>
+                    <p class="text-primary font-medium mb-3">English Literature</p>
+                    <p class="text-text-secondary mb-4 leading-relaxed">
+                        "Teaching my younger sister to love literature taught me that every story has the power to inspire. I help students discover their voice through words."
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-1">
+                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <span class="text-sm text-text-secondary">4.9 (2,156 reviews)</span>
+                        </div>
+                        <a href="mentor_profiles.html" class="text-primary hover:text-secondary transition-colors font-medium">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="mentor_profiles.html" class="btn-primary text-lg px-8 py-4">
+                    Meet All Mentors
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gradient mb-6">
+                    Comprehensive Subject Coverage
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Master all subjects with our expertly crafted curriculum designed for Classes 8-12.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Subject Card 1 -->
+                <div class="card group hover:shadow-xl">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-3">Mathematics</h3>
+                    <p class="text-text-secondary text-sm mb-4">Algebra, Geometry, Calculus, Statistics</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-primary font-medium">₹2,999/month</span>
+                        <span class="text-text-secondary">120+ lessons</span>
+                    </div>
+                </div>
+
+                <!-- Subject Card 2 -->
+                <div class="card group hover:shadow-xl">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-3">Science</h3>
+                    <p class="text-text-secondary text-sm mb-4">Physics, Chemistry, Biology</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-primary font-medium">₹3,499/month</span>
+                        <span class="text-text-secondary">150+ lessons</span>
+                    </div>
+                </div>
+
+                <!-- Subject Card 3 -->
+                <div class="card group hover:shadow-xl">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-3">English</h3>
+                    <p class="text-text-secondary text-sm mb-4">Literature, Grammar, Writing</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-primary font-medium">₹2,499/month</span>
+                        <span class="text-text-secondary">100+ lessons</span>
+                    </div>
+                </div>
+
+                <!-- Subject Card 4 -->
+                <div class="card group hover:shadow-xl">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-3">Social Studies</h3>
+                    <p class="text-text-secondary text-sm mb-4">History, Geography, Civics</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-primary font-medium">₹2,299/month</span>
+                        <span class="text-text-secondary">90+ lessons</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="student_dashboard.html" class="btn-primary text-lg px-8 py-4">
+                    Explore All Courses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gradient mb-6">
+                    Student Success Stories
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Hear from our students who have achieved remarkable results with Got It Learning Platform.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="card">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Aarav Patel" class="w-16 h-16 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2'; this.onerror=null;" />
+                        <div>
+                            <h4 class="font-heading font-semibold text-lg">Aarav Patel</h4>
+                            <p class="text-text-secondary text-sm">Class 12, Mumbai</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>   
+
+    <!-- footer Section -->
+    <footer class="bg-surface border-t border-gray-200 dark:border-gray-700 py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <img src="assets/gotit-logo.png" alt="Got It Logo" class="w-10 h-10 object-cover rounded-full bg-white p-1 border border-gray-200" />
+                <span class="text-xl font-heading font-bold text-gradient">Got It</span>
+            </div>
+            <div class="text-text-secondary text-sm">&copy; 2024 Got It Learning Platform. All rights reserved.</div>
+            <div class="flex space-x-4">
+                <a href="#" aria-label="Instagram" class="hover:text-primary transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="5" stroke-width="2"/>
+                        <circle cx="17" cy="7" r="1.5" fill="currentColor"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Twitter" class="hover:text-primary transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0022.4 1.64a9.09 9.09 0 01-2.88 1.1A4.48 4.48 0 0016.11 0c-2.5 0-4.5 2.01-4.5 4.5 0 .35.04.7.11 1.03C7.69 5.36 4.07 3.6 1.64 1.16c-.38.65-.6 1.4-.6 2.2 0 1.52.77 2.86 1.94 3.65A4.48 4.48 0 01.96 6v.06c0 2.13 1.52 3.91 3.54 4.31-.37.1-.76.16-1.16.16-.28 0-.55-.03-.81-.08.56 1.74 2.18 3.01 4.1 3.05A9.05 9.05 0 012 19.54a12.8 12.8 0 006.95 2.04c8.34 0 12.9-6.91 12.9-12.9 0-.2 0-.39-.01-.58A9.22 9.22 0 0023 3z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Facebook" class="hover:text-primary transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a4 4 0 00-4 4v3H7v4h4v8h4v-8h3l1-4h-4V6a1 1 0 011-1h3z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

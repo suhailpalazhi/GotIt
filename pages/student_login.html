@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Login - Got It Learning Platform</title>
+    <meta name="description" content="Sign in to your Got It account and continue your learning journey. Access your courses, mentors, and study progress." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fgotitlea6908back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background text-text-primary min-h-screen">
+    <!-- Navigation Header -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-background shadow-lg backdrop-blur-glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 lg:w-12 lg:h-12 gradient-primary rounded-lg flex items-center justify-center transform rotate-45">
+                        <div class="w-6 h-6 lg:w-8 lg:h-8 bg-white rounded-sm transform -rotate-45"></div>
+                    </div>
+                    <span class="text-xl lg:text-2xl font-heading font-bold text-gradient">Got It</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="homepage_landing.html" class="text-text-secondary hover:text-primary transition-colors">Home</a>
+                    <a href="mentor_profiles.html" class="text-text-secondary hover:text-primary transition-colors">Mentors</a>
+                    <a href="student_dashboard.html" class="text-text-secondary hover:text-primary transition-colors">Courses</a>
+                    <a href="study_timer_progress.html" class="text-text-secondary hover:text-primary transition-colors">Study Timer</a>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center space-x-4">
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-surface transition-colors">
+                        <svg id="sunIcon" class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <svg id="moonIcon" class="w-5 h-5 text-text-secondary hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Register Button -->
+                    <div class="hidden sm:flex">
+                        <a href="student_registration.html" class="btn-accent">Sign Up</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuToggle" class="lg:hidden p-2 rounded-lg hover:bg-surface transition-colors">
+                        <svg class="w-6 h-6 text-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="lg:hidden hidden bg-background border-t border-gray-200 dark:border-gray-700">
+            <div class="px-4 py-6 space-y-4">
+                <a href="homepage_landing.html" class="block text-text-secondary hover:text-primary transition-colors">Home</a>
+                <a href="mentor_profiles.html" class="block text-text-secondary hover:text-primary transition-colors">Mentors</a>
+                <a href="student_dashboard.html" class="block text-text-secondary hover:text-primary transition-colors">Courses</a>
+                <a href="study_timer_progress.html" class="block text-text-secondary hover:text-primary transition-colors">Study Timer</a>
+                <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                    <a href="student_registration.html" class="btn-accent block text-center">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-16 lg:pt-20 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-12">
+                <!-- Left Column - Login Form -->
+                <div class="w-full max-w-md mx-auto lg:mx-0">
+                    <!-- Header -->
+                    <div class="text-center mb-8">
+                        <h1 class="text-3xl lg:text-4xl font-heading font-bold text-gradient mb-4">
+                            Welcome Back!
+                        </h1>
+                        <p class="text-lg text-text-secondary">
+                            Continue your learning journey with Got It
+                        </p>
+                    </div>
+
+                    <!-- Social Login Options -->
+                    <div class="space-y-3 mb-6">
+                        <button class="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg hover:bg-surface transition-colors">
+                            <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" class="w-5 h-5 mr-3" />
+                            <span class="text-text-primary font-medium">Continue with Google</span>
+                        </button>
+                        <button class="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg hover:bg-surface transition-colors">
+                            <svg class="w-5 h-5 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                            <span class="text-text-primary font-medium">Continue with Facebook</span>
+                        </button>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="relative mb-6">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-background text-text-secondary">Or sign in with email</span>
+                        </div>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="loginForm" class="space-y-6">
+                        <!-- Email Field -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-text-primary mb-2">
+                                Email Address
+                            </label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-background text-text-primary" placeholder="Enter your email address" />
+                            <div id="emailError" class="hidden mt-2 text-sm text-error">
+                                Please enter a valid email address
+                            </div>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-text-primary mb-2">
+                                Password
+                            </label>
+                            <div class="relative">
+                                <input type="password" id="password" name="password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-background text-text-primary pr-12" placeholder="Enter your password" />
+                                <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center text-text-secondary hover:text-text-primary transition-colors">
+                                    <svg id="eyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                    </svg>
+                                    <svg id="eyeOffIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div id="passwordError" class="hidden mt-2 text-sm text-error">
+                                Password must be at least 6 characters long
+                            </div>
+                        </div>
+
+                        <!-- Remember Me & Forgot Password -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <input id="remember" name="remember" type="checkbox" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded" />
+                                <label for="remember" class="ml-2 block text-sm text-text-secondary">
+                                    Remember me
+                                </label>
+                            </div>
+                            <a href="javascript:void(0)" class="text-sm text-primary hover:text-secondary transition-colors font-medium">
+                                Forgot password?
+                            </a>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full btn-primary text-lg py-4" id="submitBtn">
+                            <span id="submitText">Sign In</span>
+                            <svg id="loadingIcon" class="hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                            </svg>
+                        </button>
+
+                        <!-- Error Message -->
+                        <div id="formError" class="hidden p-4 bg-error-50 border border-error-200 rounded-lg">
+                            <div class="flex">
+                                <svg class="w-5 h-5 text-error mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                </svg>
+                                <div>
+                                    <h3 class="text-sm font-medium text-error">Login Failed</h3>
+                                    <p class="text-sm text-error mt-1" id="errorMessage">
+                                        Invalid email or password. Please try again.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Sign Up Link -->
+                    <div class="mt-8 text-center">
+                        <p class="text-text-secondary">
+                            Don't have an account? 
+                            <a href="student_registration.html" class="text-primary hover:text-secondary transition-colors font-medium">
+                                Sign up here
+                            </a>
+                        </p>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                        <div class="flex items-center justify-center space-x-6 text-sm text-text-secondary">
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Secure Login</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>50,000+ Students</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <span>4.9/5 Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Motivational Content -->
+                <div class="hidden lg:block">
+                    <div class="relative">
+                        <!-- Background Image -->
+                        <div class="relative overflow-hidden rounded-3xl">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Students studying together" class="w-full h-96 object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        </div>
+
+                        <!-- Overlay Content -->
+                        <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                            <h2 class="text-3xl font-heading font-bold mb-4">
+                                Join 50,000+ Students
+                            </h2>
+                            <p class="text-lg opacity-90 mb-6">
+                                Experience the most engaging online learning platform designed for Indian students. Master every subject with expert mentors.
+                            </p>
+                            <div class="flex items-center space-x-6">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold">95%</div>
+                                    <div class="text-sm opacity-75">Success Rate</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold">24/7</div>
+                                    <div class="text-sm opacity-75">Support</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold">CBSE</div>
+                                    <div class="text-sm opacity-75">Certified</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Features -->
+                    <div class="mt-8 grid grid-cols-2 gap-6">
+                        <div class="card text-center">
+                            <div class="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-heading font-semibold mb-2">Study Timer</h3>
+                            <p class="text-sm text-text-secondary">Track your progress with built-in study timer</p>
+                        </div>
+                        <div class="card text-center">
+                            <div class="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-heading font-semibold mb-2">Expert Mentors</h3>
+                            <p class="text-sm text-text-secondary">Learn from experienced educators</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center transform rotate-45">
+                            <div class="w-8 h-8 bg-white rounded-sm transform -rotate-45"></div>
+                        </div>
+                        <span class="text-2xl font-heading font-bold text-gradient">Got It</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        India's most engaging online learning platform for Class 8-12 students. Making education adipoli, one student at a time.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <img src="../assets/gotit-logo.png" alt="Got It Logo" class="w-12 h-12 object-cover rounded-full shadow-md bg-white p-1 border border-gray-200 flex-shrink-0 overflow-hidden" />
+                        </a>
+                        <a href="javascript:void(0)" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z.017 0z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-4">
+                        <li><a href="homepage_landing.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="mentor_profiles.html" class="text-gray-400 hover:text-white transition-colors">Mentors</a></li>
+                        <li><a href="student_dashboard.html" class="text-gray-400 hover:text-white transition-colors">Courses</a></li>
+                        <li><a href="study_timer_progress.html" class="text-gray-400 hover:text-white transition-colors">Study Timer</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-6">Support</h3>
+                    <ul class="space-y-4">
+                        <li><a href="javascript:void(0)" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 Got It Learning Platform. All Rights Reserved. Made with ❤️ for Indian students.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        
+        if (currentTheme === 'dark') {
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            if (newTheme === 'dark') {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Password Toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+        const eyeOffIcon = document.getElementById('eyeOffIcon');
+
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            eyeIcon.classList.toggle('hidden');
+            eyeOffIcon.classList.toggle('hidden');
+        });
+
+        // Form Validation and Submission
+        const loginForm = document.getElementById('loginForm');
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const formError = document.getElementById('formError');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = document.getElementById('submitText');
+        const loadingIcon = document.getElementById('loadingIcon');
+
+        // Email validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Password validation
+        function validatePassword(password) {
+            return password.length >= 6;
+        }
+
+        // Show error
+        function showError(element, show = true) {
+            if (show) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+
+        // Real-time validation
+        emailInput.addEventListener('blur', () => {
+            const isValid = validateEmail(emailInput.value);
+            showError(emailError, !isValid && emailInput.value !== '');
+            
+            if (!isValid && emailInput.value !== '') {
+                emailInput.classList.add('border-error');
+            } else {
+                emailInput.classList.remove('border-error');
+            }
+        });
+
+        passwordInput.addEventListener('blur', () => {
+            const isValid = validatePassword(passwordInput.value);
+            showError(passwordError, !isValid && passwordInput.value !== '');
+            
+            if (!isValid && passwordInput.value !== '') {
+                passwordInput.classList.add('border-error');
+            } else {
+                passwordInput.classList.remove('border-error');
+            }
+        });
+
+        // Form submission
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            
+            // Hide previous errors
+            showError(emailError, false);
+            showError(passwordError, false);
+            showError(formError, false);
+            
+            // Validate inputs
+            let isValid = true;
+            
+            if (!validateEmail(email)) {
+                showError(emailError, true);
+                emailInput.classList.add('border-error');
+                isValid = false;
+            } else {
+                emailInput.classList.remove('border-error');
+            }
+            
+            if (!validatePassword(password)) {
+                showError(passwordError, true);
+                passwordInput.classList.add('border-error');
+                isValid = false;
+            } else {
+                passwordInput.classList.remove('border-error');
+            }
+            
+            if (!isValid) return;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.classList.add('hidden');
+            loadingIcon.classList.remove('hidden');
+            
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Mock authentication - check for demo credentials
+                if (email === 'student@gotit.com' && password === 'password123') {
+                    // Success - redirect to dashboard
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('userEmail', email);
+                    window.location.href = 'student_dashboard.html';
+                } else {
+                    // Show error
+                    showError(formError, true);
+                    document.getElementById('errorMessage').textContent = 
+                        'Invalid email or password. Try student@gotit.com with password123';
+                }
+            } catch (error) {
+                showError(formError, true);
+                document.getElementById('errorMessage').textContent = 
+                    'Something went wrong. Please try again.';
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitText.classList.remove('hidden');
+                loadingIcon.classList.add('hidden');
+            }
+        });
+
+        // Auto-hide form errors when user starts typing
+        emailInput.addEventListener('input', () => {
+            showError(formError, false);
+            emailInput.classList.remove('border-error');
+        });
+
+        passwordInput.addEventListener('input', () => {
+            showError(formError, false);
+            passwordInput.classList.remove('border-error');
+        });
+
+        // Social login handlers
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Google') || button.textContent.includes('Facebook')) {
+                button.addEventListener('click', () => {
+                    // Simulate social login
+                    alert('Social login feature coming soon!');
+                });
+            }
+        });
+
+        // Forgot password handler
+        document.querySelector('a[href="javascript:void(0)"]').addEventListener('click', (e) => {
+            if (e.target.textContent.includes('Forgot password')) {
+                const email = prompt('Enter your email address to reset password:');
+                if (email && validateEmail(email)) {
+                    alert('Password reset link sent to your email!');
+                } else if (email) {
+                    alert('Please enter a valid email address.');
+                }
+            }
+        });
+
+        // Auto-focus first input
+        window.addEventListener('load', () => {
+            emailInput.focus();
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
